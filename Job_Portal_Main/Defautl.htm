@@ -1,0 +1,275 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>AVATS</title>
+
+	<link href="CSS.CSS" rel="stylesheet" type="text/css" />
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+
+	<script language="JavaScript 1.2" type="text/javascript">
+	/*
+	    Script Name: Javascript Cookie Script
+        Author: Public Domain, with some modifications
+        Script Source URI: http://techpatterns.com/downloads/javascript_cookies.php
+        Version 1.1.1
+    */
+    
+	function Get_Cookie( check_name ){
+	    // first we'll split this cookie up into name/value pairs
+	    // note: document.cookie only returns name=value, not the other components
+	    var a_all_cookies = document.cookie.split( ';' );
+	    var a_temp_cookie = '';
+	    var cookie_name = '';
+	    var cookie_value = '';
+	    var b_cookie_found = false; // set boolean t/f default f
+    	
+	    for ( i = 0; i < a_all_cookies.length; i++ )
+	    {
+		    // now we'll split apart each name=value pair
+		    a_temp_cookie = a_all_cookies[i].split( '=' );
+    		
+    		
+		    // and trim left/right whitespace while we're at it
+		    cookie_name = a_temp_cookie[0].replace(/^\s+|\s+$/g, '');
+    	
+		    // if the extracted name matches passed check_name
+		    if ( cookie_name == check_name )
+		    {
+			    b_cookie_found = true;
+			    // we need to handle case where cookie has no value but exists (no = sign, that is):
+			    if ( a_temp_cookie.length > 1 )
+			    {
+				    cookie_value = unescape( a_temp_cookie[1].replace(/^\s+|\s+$/g, '') );
+			    }
+			    // note that in cases where cookie is initialized but no value, null is returned
+			    return cookie_value;
+			    break;
+		    }
+		    a_temp_cookie = null;
+		    cookie_name = '';
+	    }
+	    if ( !b_cookie_found ) 
+	    {
+		    return null;
+	    }
+    }
+
+    function Set_Cookie( name, value, expires, path, domain, secure ) {
+	    // set time, it's in milliseconds
+	    var today = new Date();
+	    today.setTime( today.getTime() );
+	    // if the expires variable is set, make the correct expires time, the
+	    // current script below will set it for x number of days, to make it
+	    // for hours, delete * 24, for minutes, delete * 60 * 24
+	    if ( expires )
+	    {
+		    expires = expires * 1000 * 60 * 60 * 24;
+	    }
+	    var expires_date = new Date( today.getTime() + (expires) );
+
+	    document.cookie = name + "=" +escape( value ) +
+		    ( ( expires ) ? ";expires=" + expires_date.toGMTString() : "" ) + //expires.toGMTString()
+		    ( ( path ) ? ";path=" + path : "" ) + 
+		    ( ( domain ) ? ";domain=" + domain : "" ) +
+		    ( ( secure ) ? ";secure" : "" );
+    }
+
+    function Delete_Cookie( name, path, domain ) {
+	    if ( Get_Cookie( name ) ) document.cookie = name + "=" +
+			    ( ( path ) ? ";path=" + path : "") +
+			    ( ( domain ) ? ";domain=" + domain : "" ) +
+			    ";expires=Thu, 01-Jan-1970 00:00:01 GMT";
+    }
+
+	function checkBrowser()	
+	{
+	  Set_Cookie( 'AVATS', 'true', '', '/', '', '' )
+	  if (Get_Cookie('AVATS')) {
+	    /* cookies are enabled to the user can log on*/
+		document.form1.cookiesCheck.value = "1";
+		Delete_Cookie( 'AVATS', '/', '');
+	  } 
+	  else {
+	  	/* cookie is not found - error */
+		document.form1.cookiesCheck.value = "0";
+	  }
+	  
+	  document.form1.browserSupported.value = "1";
+	  
+	  // Opera 9.50 and 9.51 are not supported
+	  if(BrowserDetect.browser == "Opera" && BrowserDetect.version >= 9.50 && BrowserDetect.version < 9.52)
+	  {
+	    document.form1.browserSupported.value = "0";
+	  }
+	  
+	  document.form1.submit();
+	}
+	
+	var BrowserDetect = {
+	init: function () {
+		this.browser = this.searchString(this.dataBrowser) || "An unknown browser";
+		this.version = this.searchVersion(navigator.userAgent)
+			|| this.searchVersion(navigator.appVersion)
+			|| "an unknown version";
+		this.OS = this.searchString(this.dataOS) || "an unknown OS";
+	},
+	searchString: function (data) {
+		for (var i=0;i<data.length;i++)	{
+			var dataString = data[i].string;
+			var dataProp = data[i].prop;
+			this.versionSearchString = data[i].versionSearch || data[i].identity;
+			if (dataString) {
+				if (dataString.indexOf(data[i].subString) != -1)
+					return data[i].identity;
+			}
+			else if (dataProp)
+				return data[i].identity;
+		}
+	},
+	searchVersion: function (dataString) {
+		var index = dataString.indexOf(this.versionSearchString);
+		if (index == -1) return;
+		return parseFloat(dataString.substring(index+this.versionSearchString.length+1));
+	},
+	dataBrowser: [
+		{ 	string: navigator.userAgent,
+			subString: "OmniWeb",
+			versionSearch: "OmniWeb/",
+			identity: "OmniWeb"
+		},
+		{
+			string: navigator.vendor,
+			subString: "Apple",
+			identity: "Safari"
+		},
+		{
+			prop: window.opera,
+			identity: "Opera"
+		},
+		{
+			string: navigator.vendor,
+			subString: "iCab",
+			identity: "iCab"
+		},
+		{
+			string: navigator.vendor,
+			subString: "KDE",
+			identity: "Konqueror"
+		},
+		{
+			string: navigator.userAgent,
+			subString: "Firefox",
+			identity: "Firefox"
+		},
+		{
+			string: navigator.vendor,
+			subString: "Camino",
+			identity: "Camino"
+		},
+		{		// for newer Netscapes (6+)
+			string: navigator.userAgent,
+			subString: "Netscape",
+			identity: "Netscape"
+		},
+		{
+			string: navigator.userAgent,
+			subString: "MSIE",
+			identity: "Explorer",
+			versionSearch: "MSIE"
+		},
+		{
+			string: navigator.userAgent,
+			subString: "Gecko",
+			identity: "Mozilla",
+			versionSearch: "rv"
+		},
+		{ 		// for older Netscapes (4-)
+			string: navigator.userAgent,
+			subString: "Mozilla",
+			identity: "Netscape",
+			versionSearch: "Mozilla"
+		}
+	],
+	dataOS : [
+		{
+			string: navigator.platform,
+			subString: "Win",
+			identity: "Windows"
+		},
+		{
+			string: navigator.platform,
+			subString: "Mac",
+			identity: "Mac"
+		},
+		{
+			string: navigator.platform,
+			subString: "Linux",
+			identity: "Linux"
+		}
+	]
+
+    };
+    BrowserDetect.init();	
+	</script>
+	</head>
+<body onLoad="checkBrowser();">
+    <form name="form1" id="form1" action="OnlineHome.aspx" method="post">
+        <input name="cookiesCheck" id="cookiesCheck" type="hidden" />
+        <input name="browserSupported" id="browserSupported" type="hidden" />
+    </form>
+    <noscript>
+    <table width="100%">
+        <tr>
+            <td>
+                <div class="LogoDiv">
+                    <img src="image.jpeg/BARAKA SERVICES & FORMATION-logos.jpeg" alt="logo" />
+                </div>
+            </td>
+        </tr>
+		<tr class="ApplicationButtonBar">
+			<td></td>
+		</tr>
+		<tr style="height:600px;">			
+			<td width="100%" valign="top">				
+	            <table align="center">
+	            <tr align="center">
+			        <td><img src="Images/Warning.jpg" alt="Warning" /></td>
+		        </tr>
+		            <tr>
+			            <td style="padding: 0px 50px 20px 50px">			
+                        <p class="MainHeadersText" align="center">Please enable Javascript in your browser.</p>
+                        <p>You must have JavaScript enabled to use this site. Portions of the AVATS website might not be accessible with JavaScript disabled.
+                        </p>
+                         <p><b>How to turn on Javascript in Microsoft IE</b></p>
+                         <ol>
+                            <li>In the browser, choose Tools.</li>                      
+                            <li>Select Internet Options.</li>                      
+                            <li>Click the Security tab.</li>                      
+                            <li>Click Custom Level.</li>                     
+                            <li>Under Active Scripting, make sure the "Enable" radio button is selected.</li>
+                            <li>Click OK.</li>
+                         </ol>
+                         <p><b>How to turn on Javascript in Mozilla Firefox:</b></p>
+                         <ol>
+                            <li>In the browser, choose Tools and select Options.</li>                      
+                            <li>Click Content in the Options list.</li>                      
+                            <li>Check the box next to Enable JavaScript.</li>                      
+                            <li>Click OK </li>                
+                         </ol>
+                         <p><b>How to turn on Javascript in Safari:</b></p>
+                         <ol>
+                            <li>In the browser, choose Edit.</li>                      
+                            <li>Select Preferences.</li>                      
+                            <li>Click the Security tab.</li>                      
+                            <li>Check Enable JavaScript.</li>                     
+                         </ol>
+                        </td>
+                    </tr>
+	            </table>
+			</td>
+		</tr>        		
+    </table>
+    </noscript>
+</body>
+</html>
