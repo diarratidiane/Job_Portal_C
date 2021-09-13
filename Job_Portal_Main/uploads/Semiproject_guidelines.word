@@ -1,0 +1,130 @@
+GUIDELINES FOR MINI PROJECT-I
+
+
+General Guidelines:
+
+1.	Consider this miniproject-I as a practical part of the subject System analysis and design and UML for better learning of the concepts.
+2.	Student should select the project large enough to justify the weightage.
+3.	Analysis and design of the whole project has to be completed during this semester. Implementation and thorough testing is compulsory. 
+4.	Team Size for a Project can be TWO students from same practical batch. It can be extended to THREE in Special cases with kind permission of concerned Guide.
+5.	Students must have to submit One copy of project report to the college and one CD(Including soft copy of report and project code) to the guide for necessary
+Evaluation (and use or extension) as a part of term work.
+6.	Modeling of Analysis and Design phase must be done in UML notations.
+
+
+
+
+CONTENTS: Following should be the order of contents for the report and should be strictly maintained. 
+I.	Cover Page
+II.	First Page
+III.	College/ Institute Certificate
+IV.	Acknowledgement
+V.	Notations, Naming Convention and Abbreviations 
+VI.	Index(Table of Contents) 
+VII.	CHAPTERS (See The Details )
+VIII.	 Appendices ( if applicable)
+IX.	 References
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+DETAIL OF CHAPTERS
+1.0	Project definition, Scope and Objectives
+1.1	Project Profile
+1.2	Project definition
+1.3	Goals & Objectives
+1.4	Scope (Scope – what it can do and can’t do)
+2.0 System Requirements Specification
+    2.1   User Characteristics (Type of users who is dealing with the system)
+    2.2   Hardware and Software requirement
+2.3	Requirements of New System 
+(Mention all functional and non- functional including user and system requirements) 
+    2.4   Constraints
+(It includes Hardware Limitations, Interfaces to Other Applications, Parallelism,Reliability Requirements, Criticality of the Application, Security Consideration, Assumptions and Dependencies or any other constraints related to your system)
+2.5 Validation Criteria
+(Mention all kinds of validation criteria including data validation, response time and others as per user requirement.)
+3.0 System Analysis and Modeling
+3.1     Study of Current System
+3.2     Problem and Weaknesses of Current System
+3.3     Proposed New system 
+3.4     Feasibility Study 
+3.5	  Functions Of System 
+3.5.1	Use Case Diagram, 
+3.5.2	Use Case document 
+3.5.3	Event trace 
+3.5.4	Scenario
+3.6	     Data Modeling  
+3.6.1	Class Diagram
+3.6.2	Object Diagram
+3.6.3	Sequence Diagram
+3.6.4	Data Dictionary  
+3.6.5	E-R Daigram
+3.7	     Functional  and Behavioral Modeling 
+3.7.1	Context Diagram
+3.7.2	Data Flow Diagram (At least up to level 1)
+3.7.3	Process Specification and Decision Table
+3.7.4	Control flow diagram
+3.7.5	State Diagram
+3.7.6	Activity Diagram
+4.0	System design
+4.1	 Database Design/Data Structure Design
+4.2	 Mapping objects/classes to tables ( if non OO implementation)
+4.3	 Designing Pseudo code or algorithm for Method or operations 
+4.4	 Input/Output and Interface Design
+5.0	Architecture of  New System
+5.1	 Structure chart/ Package diagram
+5.2	 Deployment Diagram
+6.0	Conclusion and Discussion
+
+ 
+PAPER: Use A4 (210mm X 297mm) Royal Executive Bond Paper.
+MARGINS: Margins for pages including the regular text should be as below:
+Left     :   1.2 Inches Right   :   1.0 Inches Top      :   1.0 Inch  Bottom:   1.0 Inch
+FOLLOWING MUST BE STRICTLY FOLLOWED
+TOP-LEFT CORNER                   : contains the project_id of the student
+TOP-RIGHT CORNER                 : contains the chapter heading
+BOTTOM-LEFT CORNER          : contains “VVP (IT)” 
+BOTTOM- RIGHT CORNER      : contains the page number 
+NUMBERING
+•	All pages in the report except the cover pages and dedication page must be numbered. All the page numbers should be located at the BOTTOM RIGHT of the page.
+•	The page numbering starting from candidate’s declaration up to the beginning of the chapters should be numbered in small roman letters, i.e. i, ii, …
+•	The page numbering starting from the beginning of Chapter 1 up to the end of the report, should be numbered in Arabic numerals, i.e. 1, 2, 3,….
+PREPARATION OF CHAPTERS
+Color:  All the text including Tables should be Black prints. However, Graphs and Figures can have color prints.
+Font: 
+Chapter Headings      : Times New Roman 16pts, bold, UPPER CASE
+Section Headings        : Times New Roman 14 pts, bold, UPPER CASE
+Subsection Headings  : Times New Roman 12 pts, bold, Title Case
+Regular Text               : Times New Roman 12 pts, normal 
+Special Text                 : Times New Roman Italics 12 pts (for foot notes, symbols, quotes...) 
+SPACING/ALIGNMENT
+•	Use 1.5 spacing between lines of regular text
+•	Use double spacing between Paragraphs, Chapter title and section Heading, Section heading and paragraphs, Table Title and Table, Figure Title and Figure
+•	Use single spacing between text corresponding to bullets, listing and quotes in the body of text.
+•	All paragraphs in the report are to be fully justified from the first line to the last line and should start from left without any hyphenation/indent. Text corresponding to bullets, listings and quotes in the main body of text should be indented.
+SECTION/SUBSECTION NUMBERING
+Section numbering should be left justified using bold print with Arabic numerals and decimals.
+Example: 1.1, 2.1, 1.2.1
+FIGURES, DIAGRAMS ,TABLES:
+Figures and Tables should follow immediately after/on immediate next page after they are referred to for the first time in the text. Figure headings should be given at the bottom of the figure. All figures and tables are to be central aligned on the page. Each drawing is to be numbered and referred to as Figures only. Diagram title should be similar to figure titles. Table heading should be given at the top of the table.
+REFERENCES
+All the references cited inside the text should be documented under the heading “REFERENCES”. All the references must be informative. 
+Example:
+Single Author:
+Aloysius J. A. (1998) Data Analysis for Management, Prentice Hall of India Pvt. Ltd., New Delhi.
+Note: Arrange references in alphabetical order and number them in that order.
